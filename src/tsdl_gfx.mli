@@ -87,4 +87,19 @@ val filled_ellipse_rgba :
   x:int -> y:int -> rx:int -> ry:int ->
   r:int -> g:int -> b:int -> a:int -> unit result
 
+val arc_rgba :
+  Tsdl.Sdl.renderer ->
+  x:int -> y:int -> rad:int -> start:int -> end_:int ->
+  r:int -> g:int -> b:int -> a:int -> unit result
+
+val pie_rgba :
+  Tsdl.Sdl.renderer ->
+  x:int -> y:int -> rad:int -> start:int -> end_:int ->
+  r:int -> g:int -> b:int -> a:int -> unit result
+
+val filled_pie_rgba :
+  Tsdl.Sdl.renderer ->
+  x:int -> y:int -> rad:int -> start:int -> end_:int ->
+  r:int -> g:int -> b:int -> a:int -> unit result
+
 end

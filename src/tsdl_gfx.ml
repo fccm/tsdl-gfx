@@ -160,4 +160,31 @@ let filled_ellipse_rgba =
 let filled_ellipse_rgba rnd ~x ~y ~rx ~ry ~r ~g ~b ~a =
   filled_ellipse_rgba rnd x y rx ry r g b a
 
+
+let arc_rgba =
+  foreign "arcRGBA" (
+    renderer @-> int @-> int @-> int @-> int @-> int @-> int @-> int @-> int @-> int @->
+      returning zero_to_ok)
+
+let arc_rgba rnd ~x ~y ~rad ~start ~end_ ~r ~g ~b ~a =
+  arc_rgba rnd x y rad start end_ r g b a
+
+
+let pie_rgba =
+  foreign "pieRGBA" (
+    renderer @-> int @-> int @-> int @-> int @-> int @-> int @-> int @-> int @-> int @->
+      returning zero_to_ok)
+
+let pie_rgba rnd ~x ~y ~rad ~start ~end_ ~r ~g ~b ~a =
+  pie_rgba rnd x y rad start end_ r g b a
+
+
+let filled_pie_rgba =
+  foreign "filledPieRGBA" (
+    renderer @-> int @-> int @-> int @-> int @-> int @-> int @-> int @-> int @-> int @->
+      returning zero_to_ok)
+
+let filled_pie_rgba rnd ~x ~y ~rad ~start ~end_ ~r ~g ~b ~a =
+  filled_pie_rgba rnd x y rad start end_ r g b a
+
 end
