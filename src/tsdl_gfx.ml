@@ -52,4 +52,13 @@ let vline_rgba rnd ~x ~y1 ~y2 ~r ~g ~b ~a =
 let rectangle_rgba rnd ~x1 ~y1 ~x2 ~y2 ~r ~g ~b ~a =
   rectangle_rgba rnd x1 y1 x2 y2 r g b a
 
+
+let rounded_rectangle_rgba =
+  foreign "roundedRectangleRGBA" (
+    renderer @-> int @-> int @-> int @-> int @-> int @-> int @-> int @-> int @-> int @->
+      returning zero_to_ok)
+
+let rounded_rectangle_rgba rnd ~x1 ~y1 ~x2 ~y2 ~rad ~r ~g ~b ~a =
+  rounded_rectangle_rgba rnd x1 y1 x2 y2 rad r g b a
+
 end
