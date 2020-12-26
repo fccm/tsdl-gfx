@@ -10,6 +10,6 @@ module Gfx : sig
 type 'a result = 'a Tsdl.Sdl.result
 
 val pixel_rgba :
-  Tsdl.Sdl.renderer -> int -> int -> int -> int -> int -> int -> unit result
+  Tsdl.Sdl.renderer -> x:int -> y:int -> r:int -> g:int -> b:int -> a:int -> unit result
 
 end

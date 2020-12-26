@@ -24,4 +24,7 @@ let pixel_rgba =
     renderer @-> int @-> int @-> int @-> int @-> int @-> int @->
       returning zero_to_ok)
 
+let pixel_rgba rnd ~x ~y ~r ~g ~b ~a =
+  pixel_rgba rnd x y r g b a
+
 end

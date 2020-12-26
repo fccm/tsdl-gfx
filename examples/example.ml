@@ -27,7 +27,7 @@ let () =
                 let x = Random.int 320 in
                 let y = Random.int 240 in
 
-                assert (Gfx.pixel_rgba rndr x y r g b a = Ok ());
+                assert (Gfx.pixel_rgba rndr ~x ~y ~r ~g ~b ~a = Ok ());
 
                 Sdl.render_present rndr;
               done;
