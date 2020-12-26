@@ -105,4 +105,32 @@ let rounded_box_rgba =
 let rounded_box_rgba rnd ~x1 ~y1 ~x2 ~y2 ~rad ~r ~g ~b ~a =
   rounded_box_rgba rnd x1 y1 x2 y2 rad r g b a
 
+
+
+let circle_rgba =
+  foreign "circleRGBA" (
+    renderer @-> int @-> int @-> int @-> int @-> int @-> int @-> int @->
+      returning zero_to_ok)
+
+let circle_rgba rnd ~x ~y ~rad ~r ~g ~b ~a =
+  circle_rgba rnd x y rad r g b a
+
+
+let aacircle_rgba =
+  foreign "aacircleRGBA" (
+    renderer @-> int @-> int @-> int @-> int @-> int @-> int @-> int @->
+      returning zero_to_ok)
+
+let aacircle_rgba rnd ~x ~y ~rad ~r ~g ~b ~a =
+  aacircle_rgba rnd x y rad r g b a
+
+
+let filled_circle_rgba =
+  foreign "filledCircleRGBA" (
+    renderer @-> int @-> int @-> int @-> int @-> int @-> int @-> int @->
+      returning zero_to_ok)
+
+let filled_circle_rgba rnd ~x ~y ~rad ~r ~g ~b ~a =
+  filled_circle_rgba rnd x y rad r g b a
+
 end
