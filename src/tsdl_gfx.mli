@@ -72,4 +72,19 @@ val filled_circle_rgba :
   x:int -> y:int -> rad:int ->
   r:int -> g:int -> b:int -> a:int -> unit result
 
+val ellipse_rgba :
+  Tsdl.Sdl.renderer ->
+  x:int -> y:int -> rx:int -> ry:int ->
+  r:int -> g:int -> b:int -> a:int -> unit result
+
+val aaellipse_rgba :
+  Tsdl.Sdl.renderer ->
+  x:int -> y:int -> rx:int -> ry:int ->
+  r:int -> g:int -> b:int -> a:int -> unit result
+
+val filled_ellipse_rgba :
+  Tsdl.Sdl.renderer ->
+  x:int -> y:int -> rx:int -> ry:int ->
+  r:int -> g:int -> b:int -> a:int -> unit result
+
 end

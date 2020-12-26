@@ -201,6 +201,51 @@ let try_filled_circle rndr =
   assert (Gfx.filled_circle_rgba rndr ~x ~y ~rad ~r ~g ~b ~a = Ok ())
 
 
+let try_ellipse rndr =
+  let r = Random.int 255 in
+  let g = Random.int 255 in
+  let b = Random.int 255 in
+  let a = 255 in
+
+  let x = Random.int 320 in
+  let y = Random.int 240 in
+
+  let rx = 4 + Random.int 40 in
+  let ry = 4 + Random.int 40 in
+
+  assert (Gfx.ellipse_rgba rndr ~x ~y ~rx ~ry ~r ~g ~b ~a = Ok ())
+
+
+let try_aaellipse rndr =
+  let r = Random.int 255 in
+  let g = Random.int 255 in
+  let b = Random.int 255 in
+  let a = 255 in
+
+  let x = Random.int 320 in
+  let y = Random.int 240 in
+
+  let rx = 4 + Random.int 40 in
+  let ry = 4 + Random.int 40 in
+
+  assert (Gfx.aaellipse_rgba rndr ~x ~y ~rx ~ry ~r ~g ~b ~a = Ok ())
+
+
+let try_filled_ellipse rndr =
+  let r = Random.int 255 in
+  let g = Random.int 255 in
+  let b = Random.int 255 in
+  let a = 255 in
+
+  let x = Random.int 320 in
+  let y = Random.int 240 in
+
+  let rx = 4 + Random.int 40 in
+  let ry = 4 + Random.int 40 in
+
+  assert (Gfx.filled_ellipse_rgba rndr ~x ~y ~rx ~ry ~r ~g ~b ~a = Ok ())
+
+
 
 let iter n rndr msec f =
   assert (Sdl.set_render_draw_color rndr 0x00 0x00 0x00 0xFF = Ok ());
@@ -237,6 +282,10 @@ let () =
               iter  60 rndr 2000l try_circle;
               iter  60 rndr 2000l try_aacircle;
               iter  40 rndr 2000l try_filled_circle;
+
+              iter  60 rndr 2000l try_ellipse;
+              iter  60 rndr 2000l try_aaellipse;
+              iter  40 rndr 2000l try_filled_ellipse;
 
               Sdl.delay 1000l;
               Sdl.destroy_window w;

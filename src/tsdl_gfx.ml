@@ -133,4 +133,31 @@ let filled_circle_rgba =
 let filled_circle_rgba rnd ~x ~y ~rad ~r ~g ~b ~a =
   filled_circle_rgba rnd x y rad r g b a
 
+
+let ellipse_rgba =
+  foreign "ellipseRGBA" (
+    renderer @-> int @-> int @-> int @-> int @-> int @-> int @-> int @-> int @->
+      returning zero_to_ok)
+
+let ellipse_rgba rnd ~x ~y ~rx ~ry ~r ~g ~b ~a =
+  ellipse_rgba rnd x y rx ry r g b a
+
+
+let aaellipse_rgba =
+  foreign "aaellipseRGBA" (
+    renderer @-> int @-> int @-> int @-> int @-> int @-> int @-> int @-> int @->
+      returning zero_to_ok)
+
+let aaellipse_rgba rnd ~x ~y ~rx ~ry ~r ~g ~b ~a =
+  aaellipse_rgba rnd x y rx ry r g b a
+
+
+let filled_ellipse_rgba =
+  foreign "filledEllipseRGBA" (
+    renderer @-> int @-> int @-> int @-> int @-> int @-> int @-> int @-> int @->
+      returning zero_to_ok)
+
+let filled_ellipse_rgba rnd ~x ~y ~rx ~ry ~r ~g ~b ~a =
+  filled_ellipse_rgba rnd x y rx ry r g b a
+
 end
