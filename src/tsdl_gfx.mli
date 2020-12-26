@@ -102,4 +102,25 @@ val filled_pie_rgba :
   x:int -> y:int -> rad:int -> start:int -> end_:int ->
   r:int -> g:int -> b:int -> a:int -> unit result
 
+val trigon_rgba :
+  Tsdl.Sdl.renderer ->
+  x1:int -> y1:int ->
+  x2:int -> y2:int ->
+  x3:int -> y3:int ->
+  r:int -> g:int -> b:int -> a:int -> unit result
+
+val aatrigon_rgba :
+  Tsdl.Sdl.renderer ->
+  x1:int -> y1:int ->
+  x2:int -> y2:int ->
+  x3:int -> y3:int ->
+  r:int -> g:int -> b:int -> a:int -> unit result
+
+val filled_trigon_rgba :
+  Tsdl.Sdl.renderer ->
+  x1:int -> y1:int ->
+  x2:int -> y2:int ->
+  x3:int -> y3:int ->
+  r:int -> g:int -> b:int -> a:int -> unit result
+
 end

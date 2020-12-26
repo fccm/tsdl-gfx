@@ -297,6 +297,54 @@ let try_filled_pie rndr =
   assert (Gfx.filled_pie_rgba rndr ~x ~y ~rad ~start ~end_ ~r ~g ~b ~a = Ok ())
 
 
+let try_trigon rndr =
+  let r = Random.int 255 in
+  let g = Random.int 255 in
+  let b = Random.int 255 in
+  let a = 255 in
+
+  let x1 = Random.int 320 in
+  let y1 = Random.int 240 in
+  let x2 = Random.int 320 in
+  let y2 = Random.int 240 in
+  let x3 = Random.int 320 in
+  let y3 = Random.int 240 in
+
+  assert (Gfx.trigon_rgba rndr ~x1 ~y1 ~x2 ~y2 ~x3 ~y3 ~r ~g ~b ~a = Ok ())
+
+
+let try_aatrigon rndr =
+  let r = Random.int 255 in
+  let g = Random.int 255 in
+  let b = Random.int 255 in
+  let a = 255 in
+
+  let x1 = Random.int 320 in
+  let y1 = Random.int 240 in
+  let x2 = Random.int 320 in
+  let y2 = Random.int 240 in
+  let x3 = Random.int 320 in
+  let y3 = Random.int 240 in
+
+  assert (Gfx.aatrigon_rgba rndr ~x1 ~y1 ~x2 ~y2 ~x3 ~y3 ~r ~g ~b ~a = Ok ())
+
+
+let try_filled_trigon rndr =
+  let r = Random.int 255 in
+  let g = Random.int 255 in
+  let b = Random.int 255 in
+  let a = 255 in
+
+  let x1 = Random.int 320 in
+  let y1 = Random.int 240 in
+  let x2 = Random.int 320 in
+  let y2 = Random.int 240 in
+  let x3 = Random.int 320 in
+  let y3 = Random.int 240 in
+
+  assert (Gfx.filled_trigon_rgba rndr ~x1 ~y1 ~x2 ~y2 ~x3 ~y3 ~r ~g ~b ~a = Ok ())
+
+
 
 let iter n rndr msec f =
   assert (Sdl.set_render_draw_color rndr 0x00 0x00 0x00 0xFF = Ok ());
@@ -341,6 +389,10 @@ let () =
               iter  60 rndr 2000l try_arc;
               iter  60 rndr 2000l try_pie;
               iter  40 rndr 2000l try_filled_pie;
+
+              iter  40 rndr 2000l try_trigon;
+              iter  40 rndr 2000l try_aatrigon;
+              iter  20 rndr 2000l try_filled_trigon;
 
               Sdl.delay 1000l;
               Sdl.destroy_window w;

@@ -187,4 +187,31 @@ let filled_pie_rgba =
 let filled_pie_rgba rnd ~x ~y ~rad ~start ~end_ ~r ~g ~b ~a =
   filled_pie_rgba rnd x y rad start end_ r g b a
 
+
+let trigon_rgba =
+  foreign "trigonRGBA" (
+    renderer @-> int @-> int @-> int @-> int @-> int @-> int @-> int @-> int @-> int @-> int @->
+      returning zero_to_ok)
+
+let trigon_rgba rnd ~x1 ~y1 ~x2 ~y2 ~x3 ~y3 ~r ~g ~b ~a =
+  trigon_rgba rnd x1 y1 x2 y2 x3 y3 r g b a
+
+
+let aatrigon_rgba =
+  foreign "aatrigonRGBA" (
+    renderer @-> int @-> int @-> int @-> int @-> int @-> int @-> int @-> int @-> int @-> int @->
+      returning zero_to_ok)
+
+let aatrigon_rgba rnd ~x1 ~y1 ~x2 ~y2 ~x3 ~y3 ~r ~g ~b ~a =
+  aatrigon_rgba rnd x1 y1 x2 y2 x3 y3 r g b a
+
+
+let filled_trigon_rgba =
+  foreign "filledTrigonRGBA" (
+    renderer @-> int @-> int @-> int @-> int @-> int @-> int @-> int @-> int @-> int @-> int @->
+      returning zero_to_ok)
+
+let filled_trigon_rgba rnd ~x1 ~y1 ~x2 ~y2 ~x3 ~y3 ~r ~g ~b ~a =
+  filled_trigon_rgba rnd x1 y1 x2 y2 x3 y3 r g b a
+
 end
