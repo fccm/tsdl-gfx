@@ -53,6 +53,32 @@ let rectangle_rgba rnd ~x1 ~y1 ~x2 ~y2 ~r ~g ~b ~a =
   rectangle_rgba rnd x1 y1 x2 y2 r g b a
 
 
+let line_rgba =
+  foreign "lineRGBA" (
+    renderer @-> int @-> int @-> int @-> int @-> int @-> int @-> int @-> int @->
+      returning zero_to_ok)
+
+let line_rgba rnd ~x1 ~y1 ~x2 ~y2 ~r ~g ~b ~a =
+  line_rgba rnd x1 y1 x2 y2 r g b a
+
+let aaline_rgba =
+  foreign "aalineRGBA" (
+    renderer @-> int @-> int @-> int @-> int @-> int @-> int @-> int @-> int @->
+      returning zero_to_ok)
+
+let aaline_rgba rnd ~x1 ~y1 ~x2 ~y2 ~r ~g ~b ~a =
+  aaline_rgba rnd x1 y1 x2 y2 r g b a
+
+
+let thick_line_rgba =
+  foreign "thickLineRGBA" (
+    renderer @-> int @-> int @-> int @-> int @-> int @-> int @-> int @-> int @-> int @->
+      returning zero_to_ok)
+
+let thick_line_rgba rnd ~x1 ~y1 ~x2 ~y2 ~width ~r ~g ~b ~a =
+  thick_line_rgba rnd x1 y1 x2 y2 width r g b a
+
+
 let rounded_rectangle_rgba =
   foreign "roundedRectangleRGBA" (
     renderer @-> int @-> int @-> int @-> int @-> int @-> int @-> int @-> int @-> int @->

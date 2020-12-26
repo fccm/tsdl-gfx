@@ -42,4 +42,19 @@ val rounded_box_rgba :
   x1:int -> y1:int -> x2:int -> y2:int -> rad:int ->
   r:int -> g:int -> b:int -> a:int -> unit result
 
+val line_rgba :
+  Tsdl.Sdl.renderer ->
+  x1:int -> y1:int -> x2:int -> y2:int ->
+  r:int -> g:int -> b:int -> a:int -> unit result
+
+val aaline_rgba :
+  Tsdl.Sdl.renderer ->
+  x1:int -> y1:int -> x2:int -> y2:int ->
+  r:int -> g:int -> b:int -> a:int -> unit result
+
+val thick_line_rgba :
+  Tsdl.Sdl.renderer ->
+  x1:int -> y1:int -> x2:int -> y2:int -> width:int ->
+  r:int -> g:int -> b:int -> a:int -> unit result
+
 end

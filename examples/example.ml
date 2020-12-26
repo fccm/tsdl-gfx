@@ -115,6 +115,51 @@ let try_rounded_box rndr =
   assert (Gfx.rounded_box_rgba rndr ~x1 ~y1 ~x2 ~y2 ~rad ~r ~g ~b ~a = Ok ())
 
 
+let try_line rndr =
+  let r = Random.int 255 in
+  let g = Random.int 255 in
+  let b = Random.int 255 in
+  let a = 255 in
+
+  let x1 = Random.int 320 in
+  let x2 = Random.int 320 in
+  let y1 = Random.int 240 in
+  let y2 = Random.int 240 in
+
+  assert (Gfx.line_rgba rndr ~x1 ~y1 ~x2 ~y2 ~r ~g ~b ~a = Ok ())
+
+
+let try_aaline rndr =
+  let r = Random.int 255 in
+  let g = Random.int 255 in
+  let b = Random.int 255 in
+  let a = 255 in
+
+  let x1 = Random.int 320 in
+  let x2 = Random.int 320 in
+  let y1 = Random.int 240 in
+  let y2 = Random.int 240 in
+
+  assert (Gfx.aaline_rgba rndr ~x1 ~y1 ~x2 ~y2 ~r ~g ~b ~a = Ok ())
+
+
+let try_thick_line rndr =
+  let r = Random.int 255 in
+  let g = Random.int 255 in
+  let b = Random.int 255 in
+  let a = 255 in
+
+  let x1 = Random.int 320 in
+  let x2 = Random.int 320 in
+  let y1 = Random.int 240 in
+  let y2 = Random.int 240 in
+
+  let width = 1 + Random.int 8 in
+
+  assert (Gfx.thick_line_rgba rndr ~x1 ~y1 ~x2 ~y2 ~width ~r ~g ~b ~a = Ok ())
+
+
+
 let iter n rndr msec f =
   assert (Sdl.set_render_draw_color rndr 0x00 0x00 0x00 0xFF = Ok ());
   assert (Sdl.render_clear rndr = Ok ());
@@ -142,6 +187,10 @@ let () =
               iter  20 rndr 2000l try_rounded_rectangle;
               iter  10 rndr 2000l try_box;
               iter  10 rndr 2000l try_rounded_box;
+
+              iter  60 rndr 2000l try_line;
+              iter  60 rndr 2000l try_aaline;
+              iter  40 rndr 2000l try_thick_line;
 
               Sdl.delay 1000l;
               Sdl.destroy_window w;
