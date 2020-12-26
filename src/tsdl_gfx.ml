@@ -27,4 +27,29 @@ let pixel_rgba =
 let pixel_rgba rnd ~x ~y ~r ~g ~b ~a =
   pixel_rgba rnd x y r g b a
 
+let hline_rgba =
+  foreign "hlineRGBA" (
+    renderer @-> int @-> int @-> int @-> int @-> int @-> int @-> int @->
+      returning zero_to_ok)
+
+let vline_rgba =
+  foreign "vlineRGBA" (
+    renderer @-> int @-> int @-> int @-> int @-> int @-> int @-> int @->
+      returning zero_to_ok)
+
+let rectangle_rgba =
+  foreign "rectangleRGBA" (
+    renderer @-> int @-> int @-> int @-> int @-> int @-> int @-> int @-> int @->
+      returning zero_to_ok)
+
+
+let hline_rgba rnd ~x1 ~x2 ~y ~r ~g ~b ~a =
+  hline_rgba rnd x1 x2 y r g b a
+
+let vline_rgba rnd ~x ~y1 ~y2 ~r ~g ~b ~a =
+  vline_rgba rnd x y1 y2 r g b a
+
+let rectangle_rgba rnd ~x1 ~y1 ~x2 ~y2 ~r ~g ~b ~a =
+  rectangle_rgba rnd x1 y1 x2 y2 r g b a
+
 end

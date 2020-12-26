@@ -19,15 +19,57 @@ let () =
               assert (Sdl.render_clear rndr = Ok ());
 
               for i = 1 to 400 do
-                let r = Random.int 255 in
-                let g = Random.int 255 in
-                let b = Random.int 255 in
-                let a = 255 in
+                begin
+                  let r = Random.int 255 in
+                  let g = Random.int 255 in
+                  let b = Random.int 255 in
+                  let a = 255 in
 
-                let x = Random.int 320 in
-                let y = Random.int 240 in
+                  let x = Random.int 320 in
+                  let y = Random.int 240 in
 
-                assert (Gfx.pixel_rgba rndr ~x ~y ~r ~g ~b ~a = Ok ());
+                  assert (Gfx.pixel_rgba rndr ~x ~y ~r ~g ~b ~a = Ok ());
+                end;
+
+                begin
+                  let r = Random.int 255 in
+                  let g = Random.int 255 in
+                  let b = Random.int 255 in
+                  let a = 255 in
+
+                  let x1 = Random.int 320 in
+                  let x2 = Random.int 320 in
+                  let y = Random.int 240 in
+
+                  assert (Gfx.hline_rgba rndr ~x1 ~x2 ~y ~r ~g ~b ~a = Ok ());
+                end;
+
+                begin
+                  let r = Random.int 255 in
+                  let g = Random.int 255 in
+                  let b = Random.int 255 in
+                  let a = 255 in
+
+                  let x = Random.int 320 in
+                  let y1 = Random.int 240 in
+                  let y2 = Random.int 240 in
+
+                  assert (Gfx.vline_rgba rndr ~x ~y1 ~y2 ~r ~g ~b ~a = Ok ());
+                end;
+
+                begin
+                  let r = Random.int 255 in
+                  let g = Random.int 255 in
+                  let b = Random.int 255 in
+                  let a = 255 in
+
+                  let x1 = Random.int 320 in
+                  let x2 = Random.int 320 in
+                  let y1 = Random.int 240 in
+                  let y2 = Random.int 240 in
+
+                  assert (Gfx.rectangle_rgba rndr ~x1 ~y1 ~x2 ~y2 ~r ~g ~b ~a = Ok ());
+                end;
 
                 Sdl.render_present rndr;
               done;
