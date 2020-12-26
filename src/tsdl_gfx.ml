@@ -61,4 +61,22 @@ let rounded_rectangle_rgba =
 let rounded_rectangle_rgba rnd ~x1 ~y1 ~x2 ~y2 ~rad ~r ~g ~b ~a =
   rounded_rectangle_rgba rnd x1 y1 x2 y2 rad r g b a
 
+
+let box_rgba =
+  foreign "boxRGBA" (
+    renderer @-> int @-> int @-> int @-> int @-> int @-> int @-> int @-> int @->
+      returning zero_to_ok)
+
+let box_rgba rnd ~x1 ~y1 ~x2 ~y2 ~r ~g ~b ~a =
+  box_rgba rnd x1 y1 x2 y2 r g b a
+
+
+let rounded_box_rgba =
+  foreign "roundedBoxRGBA" (
+    renderer @-> int @-> int @-> int @-> int @-> int @-> int @-> int @-> int @-> int @->
+      returning zero_to_ok)
+
+let rounded_box_rgba rnd ~x1 ~y1 ~x2 ~y2 ~rad ~r ~g ~b ~a =
+  rounded_box_rgba rnd x1 y1 x2 y2 rad r g b a
+
 end
