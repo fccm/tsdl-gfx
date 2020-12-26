@@ -1,0 +1,9 @@
+description = "SDL2_gfx bindings to go with Tsdl"
+version = "0.01"
+requires = "ctypes tsdl result"
+exists_if = "tsdl_gfx.cma"
+
+archive(byte) = "tsdl_gfx.cma"
+archive(native) = "tsdl_gfx.cmxa"
+plugin(byte) = "tsdl_gfx.cma"
+plugin(native) = "tsdl_gfx.cmxs"

@@ -1,0 +1,33 @@
+
+opam-version: "2.0"
+name: "tsdl-gfx"
+version: "0.01"
+authors: [ "Florent Monnier" ]
+
+synopsis: "SDL2_gfx bindings to go with Tsdl"
+description: """
+Tsdl_gfx provides bindings to SDL2_gfx intended to be used with Tsdl.
+"""
+
+maintainer: "https://github.com/fccm/"
+homepage: "http://github.com/fccm/tsdl-gfx"
+dev-repo: "git+https://github.com/fccm/tsdl-gfx.git"
+bug-reports: "http://github.com/fccm/tsdl-gfx/issues"
+
+tags: [ "bindings" "graphics" ]
+
+depends: [
+  "ocaml" {>= "4.02"}
+  "ctypes" {>= "0.4.0"}
+  "ctypes-foreign"
+  "tsdl" {>= "0.9.0"}
+  "result"
+  "dune" {build & >= "1.11.0"}
+]
+build: [
+  ["dune" "build" "-j" jobs]
+  ["dune" "build" "@doc" "-p" name] {with-doc}
+]
+install: [
+  ["dune" "install"]
+]
