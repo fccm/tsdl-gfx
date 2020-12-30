@@ -44,3 +44,7 @@ follows the SDL2\_gfx interface closely, so it may be sufficient to
 consult [its documentation](
 https://www.ferzkopp.net/Software/SDL2_gfx/Docs/html/_s_d_l2__gfx_primitives_8h.html).
 
+For the reference of the module signature you can read the .mli file
+or read the [html api doc](
+https://fccm.github.io/tsdl-gfx/tsdl_gfx/Tsdl_gfx/Gfx/).
+
