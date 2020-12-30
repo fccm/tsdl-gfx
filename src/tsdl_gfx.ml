@@ -214,4 +214,46 @@ let filled_trigon_rgba =
 let filled_trigon_rgba rnd ~x1 ~y1 ~x2 ~y2 ~x3 ~y3 ~r ~g ~b ~a =
   filled_trigon_rgba rnd x1 y1 x2 y2 x3 y3 r g b a
 
+
+let polygon_rgba =
+  foreign "polygonRGBA" (
+    renderer @-> ptr void @-> ptr void @-> int @->
+      uint8_t @-> uint8_t @-> uint8_t @-> uint8_t @->
+        returning zero_to_ok)
+
+let polygon_rgba rnd ~ps ~r ~g ~b ~a =
+  let vx = List.map fst ps in
+  let vy = List.map snd ps in
+  let cax = CArray.of_list int16_t vx in
+  let cay = CArray.of_list int16_t vy in
+  let n = CArray.length cax in
+  let px = to_voidp (CArray.start cax) in
+  let py = to_voidp (CArray.start cay) in
+  let r = Unsigned.UInt8.of_int r in
+  let g = Unsigned.UInt8.of_int g in
+  let b = Unsigned.UInt8.of_int b in
+  let a = Unsigned.UInt8.of_int a in
+  polygon_rgba rnd px py n r g b a
+
+
+let bezier_rgba =
+  foreign "bezierRGBA" (
+    renderer @-> ptr void @-> ptr void @-> int @-> int @->
+      uint8_t @-> uint8_t @-> uint8_t @-> uint8_t @->
+        returning zero_to_ok)
+
+let bezier_rgba rnd ~ps ~s ~r ~g ~b ~a =
+  let vx = List.map fst ps in
+  let vy = List.map snd ps in
+  let cax = CArray.of_list int16_t vx in
+  let cay = CArray.of_list int16_t vy in
+  let n = CArray.length cax in
+  let px = to_voidp (CArray.start cax) in
+  let py = to_voidp (CArray.start cay) in
+  let r = Unsigned.UInt8.of_int r in
+  let g = Unsigned.UInt8.of_int g in
+  let b = Unsigned.UInt8.of_int b in
+  let a = Unsigned.UInt8.of_int a in
+  bezier_rgba rnd px py n s r g b a
+
 end

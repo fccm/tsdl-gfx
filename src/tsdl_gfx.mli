@@ -123,4 +123,14 @@ val filled_trigon_rgba :
   x3:int -> y3:int ->
   r:int -> g:int -> b:int -> a:int -> unit result
 
+val polygon_rgba :
+  Tsdl.Sdl.renderer ->
+  ps:(int * int) list ->
+  r:int -> g:int -> b:int -> a:int -> unit result
+
+val bezier_rgba :
+  Tsdl.Sdl.renderer ->
+  ps:(int * int) list -> s:int ->
+  r:int -> g:int -> b:int -> a:int -> unit result
+
 end
