@@ -361,6 +361,38 @@ let try_polygon rndr =
   assert (Gfx.polygon_rgba rndr ~ps ~r ~g ~b ~a = Ok ())
 
 
+let try_aapolygon rndr =
+  let r = Random.int 255 in
+  let g = Random.int 255 in
+  let b = Random.int 255 in
+  let a = 255 in
+  let ps =
+    let n = 4 + Random.int 12 in
+    List.init n (fun i ->
+      let x = Random.int 320 in
+      let y = Random.int 240 in
+      (x, y)
+    )
+  in
+  assert (Gfx.aapolygon_rgba rndr ~ps ~r ~g ~b ~a = Ok ())
+
+
+let try_filled_polygon rndr =
+  let r = Random.int 255 in
+  let g = Random.int 255 in
+  let b = Random.int 255 in
+  let a = 255 in
+  let ps =
+    let n = 4 + Random.int 12 in
+    List.init n (fun i ->
+      let x = Random.int 320 in
+      let y = Random.int 240 in
+      (x, y)
+    )
+  in
+  assert (Gfx.filled_polygon_rgba rndr ~ps ~r ~g ~b ~a = Ok ())
+
+
 let try_bezier rndr =
   let r = Random.int 255 in
   let g = Random.int 255 in
@@ -428,6 +460,9 @@ let () =
               iter  20 rndr 2000l try_filled_trigon;
 
               iter   8 rndr 2000l try_polygon;
+              iter   8 rndr 2000l try_aapolygon;
+              iter   8 rndr 2000l try_filled_polygon;
+
               iter  14 rndr 2000l try_bezier;
 
               Sdl.delay 1000l;

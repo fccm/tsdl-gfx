@@ -236,6 +236,48 @@ let polygon_rgba rnd ~ps ~r ~g ~b ~a =
   polygon_rgba rnd px py n r g b a
 
 
+let aapolygon_rgba =
+  foreign "aapolygonRGBA" (
+    renderer @-> ptr void @-> ptr void @-> int @->
+      uint8_t @-> uint8_t @-> uint8_t @-> uint8_t @->
+        returning zero_to_ok)
+
+let aapolygon_rgba rnd ~ps ~r ~g ~b ~a =
+  let vx = List.map fst ps in
+  let vy = List.map snd ps in
+  let cax = CArray.of_list int16_t vx in
+  let cay = CArray.of_list int16_t vy in
+  let n = CArray.length cax in
+  let px = to_voidp (CArray.start cax) in
+  let py = to_voidp (CArray.start cay) in
+  let r = Unsigned.UInt8.of_int r in
+  let g = Unsigned.UInt8.of_int g in
+  let b = Unsigned.UInt8.of_int b in
+  let a = Unsigned.UInt8.of_int a in
+  aapolygon_rgba rnd px py n r g b a
+
+
+let filled_polygon_rgba =
+  foreign "filledPolygonRGBA" (
+    renderer @-> ptr void @-> ptr void @-> int @->
+      uint8_t @-> uint8_t @-> uint8_t @-> uint8_t @->
+        returning zero_to_ok)
+
+let filled_polygon_rgba rnd ~ps ~r ~g ~b ~a =
+  let vx = List.map fst ps in
+  let vy = List.map snd ps in
+  let cax = CArray.of_list int16_t vx in
+  let cay = CArray.of_list int16_t vy in
+  let n = CArray.length cax in
+  let px = to_voidp (CArray.start cax) in
+  let py = to_voidp (CArray.start cay) in
+  let r = Unsigned.UInt8.of_int r in
+  let g = Unsigned.UInt8.of_int g in
+  let b = Unsigned.UInt8.of_int b in
+  let a = Unsigned.UInt8.of_int a in
+  filled_polygon_rgba rnd px py n r g b a
+
+
 let bezier_rgba =
   foreign "bezierRGBA" (
     renderer @-> ptr void @-> ptr void @-> int @-> int @->

@@ -128,6 +128,16 @@ val polygon_rgba :
   ps:(int * int) list ->
   r:int -> g:int -> b:int -> a:int -> unit result
 
+val aapolygon_rgba :
+  Tsdl.Sdl.renderer ->
+  ps:(int * int) list ->
+  r:int -> g:int -> b:int -> a:int -> unit result
+
+val filled_polygon_rgba :
+  Tsdl.Sdl.renderer ->
+  ps:(int * int) list ->
+  r:int -> g:int -> b:int -> a:int -> unit result
+
 val bezier_rgba :
   Tsdl.Sdl.renderer ->
   ps:(int * int) list -> s:int ->
