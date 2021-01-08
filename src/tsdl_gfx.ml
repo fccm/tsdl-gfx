@@ -298,4 +298,30 @@ let bezier_rgba rnd ~ps ~s ~r ~g ~b ~a =
   let a = Unsigned.UInt8.of_int a in
   bezier_rgba rnd px py n s r g b a
 
+
+let character_rgba =
+  foreign "characterRGBA" (
+    renderer @-> int @-> int @-> char @-> int @-> int @-> int @-> int @->
+      returning zero_to_ok)
+
+let character_rgba rnd ~x ~y ~c ~r ~g ~b ~a =
+  character_rgba rnd x y c r g b a
+
+
+let string_rgba =
+  foreign "stringRGBA" (
+    renderer @-> int @-> int @-> string @-> int @-> int @-> int @-> int @->
+      returning zero_to_ok)
+
+let string_rgba rnd ~x ~y ~s ~r ~g ~b ~a =
+  string_rgba rnd x y s r g b a
+
+
+let set_font_rotation =
+  foreign "gfxPrimitivesSetFontRotation" (
+    int @-> returning void)
+
+let set_font_rotation ~rot =
+  set_font_rotation rot
+
 end

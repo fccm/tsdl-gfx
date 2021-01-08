@@ -143,4 +143,18 @@ val bezier_rgba :
   ps:(int * int) list -> s:int ->
   r:int -> g:int -> b:int -> a:int -> unit result
 
+val character_rgba :
+  Tsdl.Sdl.renderer ->
+  x:int -> y:int ->
+  c:char ->
+  r:int -> g:int -> b:int -> a:int -> unit result
+
+val string_rgba :
+  Tsdl.Sdl.renderer ->
+  x:int -> y:int ->
+  s:string ->
+  r:int -> g:int -> b:int -> a:int -> unit result
+
+val set_font_rotation : rot:int -> unit
+
 end
