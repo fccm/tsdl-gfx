@@ -32,7 +32,7 @@ You can compile with [dune](https://dune.readthedocs.io/en/stable/):
 
 ## Installation
 
-Via [opam](https://opam.ocaml.org/):
+You can install these local sources via [opam](https://opam.ocaml.org/) with:
 
     opam install .
 
