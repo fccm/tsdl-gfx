@@ -1,7 +1,7 @@
 # Tsdl\_gfx — SDL2\_gfx bindings for OCaml with Tsdl
 
 Tsdl\_gfx provides bindings to
-[SDL2_gfx](https://www.ferzkopp.net/wordpress/2016/01/02/sdl_gfx-sdl2_gfx/)
+[SDL2\_gfx](https://www.ferzkopp.net/wordpress/2016/01/02/sdl_gfx-sdl2_gfx/)
 intended to be used with [Tsdl](https://github.com/dbuenzli/tsdl).
 
 
@@ -39,8 +39,8 @@ Via [opam](https://opam.ocaml.org/):
 
 ## Documentation
 
-Documentation can be generated with `ocamldoc`, but the binding
-follows the SDL2\_gfx interface closely, so it may be sufficient to
+Documentation can be generated with `make doc`, but the bindings
+follow the SDL2\_gfx interface closely, so it may be sufficient to
 consult [its documentation](
 https://www.ferzkopp.net/Software/SDL2_gfx/Docs/html/_s_d_l2__gfx_primitives_8h.html).
 
